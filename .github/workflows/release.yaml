@@ -101,7 +101,7 @@ jobs:
 
     - if: steps.vars.outputs.registry == 'ghcr.io'
       name: 🔓 Login to GitHub Registry
-      uses: docker/login-action@af1e73f918a031802d376d3c8bbc3fe56130a9b0 # v4.4.0
+      uses: docker/login-action@371161bbe7024a29a25c5e19bfcbc0804fe9ad2c # v4.5.2
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -125,7 +125,7 @@ jobs:
 
     - if: steps.check-melange.outputs.exists == 'true'
       name: ✅ Melange
-      uses: chainguard-dev/actions/melange-build@fabe4ed3f66ceb5f8ec86ed7ae6d0c945ca362fb # v1.6.28
+      uses: chainguard-dev/actions/melange-build@b2555de0cf9724fb9b49d050ff18bd1f49562ba7 # v1.6.29
       with:
         config: ${{ inputs.config-dir }}/melange.yaml
         archs: ${{ inputs.archs }}
@@ -323,14 +323,14 @@ jobs:
 
     - name: ⬆️ Upload SARIF (VEX-filtered)
       if: steps.vex-merge.outputs.skip == 'false'
-      uses: github/codeql-action/upload-sarif@7188fc363630916deb702c7fdcf4e481b751f97a # v4.37.1
+      uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
       with:
         sarif_file: ${{ steps.vex-filter.outputs.sarif }}
         category: ${{ github.workflow }}
 
     - name: ⬆️ Upload SARIF (raw — no VEX files found)
       if: steps.vex-merge.outputs.skip == 'true'
-      uses: github/codeql-action/upload-sarif@7188fc363630916deb702c7fdcf4e481b751f97a # v4.37.1
+      uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
         category: ${{ github.workflow }}
