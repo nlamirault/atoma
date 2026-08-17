@@ -68,7 +68,7 @@ jobs:
 
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+      uses: step-security/harden-runner@b09bb98e06d4d774595224525879c09bc6e98c40 # v2.20.1
       with:
         egress-policy: audit
 
@@ -93,7 +93,7 @@ jobs:
 
     - if: steps.vars.outputs.registry == 'ghcr.io'
       name: 🔓 Login to GitHub Registry
-      uses: docker/login-action@371161bbe7024a29a25c5e19bfcbc0804fe9ad2c # v4.5.2
+      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -117,7 +117,7 @@ jobs:
 
     - if: steps.check-melange.outputs.exists == 'true'
       name: ✅ Melange
-      uses: chainguard-dev/actions/melange-build@b2555de0cf9724fb9b49d050ff18bd1f49562ba7 # v1.6.29
+      uses: chainguard-dev/actions/melange-build@9d631658f55713e5f63ca0cc21ee168f81301fd9 # v1.6.30
       with:
         config: ${{ inputs.config-dir }}/melange.yaml
         archs: ${{ inputs.archs }}
@@ -129,7 +129,7 @@ jobs:
     - if: steps.check-melange.outputs.exists == 'true'
       name: ✅ Apko and Melange
       id: apko-melange
-      uses: chainguard-images/actions/apko-publish@a32d54a799f0b2d2e5a75f94805b2509cc898ae8 # v1.0.37
+      uses: chainguard-images/actions/apko-publish@8e701b320e7efcb120a1115de26e9fe833f86390 # v1.0.38
       with:
         config: ${{ inputs.config-dir }}/${{ inputs.target }}.yaml
         keyring-append: ${{ github.workspace }}/keys/melange.rsa.pub
@@ -141,7 +141,7 @@ jobs:
     - if: steps.check-melange.outputs.exists == 'false'
       name: ✅ Apko
       id: apko
-      uses: chainguard-images/actions/apko-publish@a32d54a799f0b2d2e5a75f94805b2509cc898ae8 # v1.0.37
+      uses: chainguard-images/actions/apko-publish@8e701b320e7efcb120a1115de26e9fe833f86390 # v1.0.38
       with:
         config: ${{ inputs.config-dir }}/${{ inputs.target }}.yaml
         tag: ${{ steps.vars.outputs.image }}
@@ -222,7 +222,7 @@ jobs:
 
     - if: steps.vars.outputs.registry == 'ghcr.io'
       name: 🔓 Attest build provenance
-      uses: actions/attest-build-provenance@0f67c3f4856b2e3261c31976d6725780e5e4c373 # v4.1.1
+      uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
       with:
         subject-name: ${{ steps.vars.outputs.registry }}/${{ inputs.repository }}
         subject-digest: ${{ steps.digest.outputs.digest }}
@@ -253,7 +253,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+      uses: step-security/harden-runner@b09bb98e06d4d774595224525879c09bc6e98c40 # v2.20.1
       with:
         egress-policy: audit
 
@@ -315,14 +315,14 @@ jobs:
 
     - name: ⬆️ Upload SARIF (VEX-filtered)
       if: steps.vex-merge.outputs.skip == 'false'
-      uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
+      uses: github/codeql-action/upload-sarif@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
       with:
         sarif_file: ${{ steps.vex-filter.outputs.sarif }}
         category: ${{ github.workflow }}
 
     - name: ⬆️ Upload SARIF (raw — no VEX files found)
       if: steps.vex-merge.outputs.skip == 'true'
-      uses: github/codeql-action/upload-sarif@e4fba868fa4b1b91e1fdab776edc8cfbe6e9fb81 # v4.37.3
+      uses: github/codeql-action/upload-sarif@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
         category: ${{ github.workflow }}
