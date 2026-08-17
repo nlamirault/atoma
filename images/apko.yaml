@@ -30,5 +30,5 @@ annotations:
   org.opencontainers.image.issue-tracker: "https://github.com/nlamirault/atoma/issues"
   org.opencontainers.image.licenses: "Apache-2.0"
   org.opencontainers.image.source: "https://github.com/nlamirault/atoma"
-  org.opencontainers.image.url: "https://github.com/rtvkiz/minimal"
+  org.opencontainers.image.url: "https://github.com/nlamirault/atoma"
   org.opencontainers.image.vendor: "Nicolas Lamirault"

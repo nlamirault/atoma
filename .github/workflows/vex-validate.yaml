@@ -22,6 +22,10 @@ on: # yamllint disable-line rule:truthy
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Validate OpenVEX documents
