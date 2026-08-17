@@ -16,10 +16,13 @@ Documentation follows the [Diátaxis](https://diataxis.fr/) framework — see [`
 
 ## Available Images
 
-| Image Name                           | Pull                                                    |
-| ------------------------------------ | ------------------------------------------------------- |
-| [shell](./images/shell/)             | `docker pull ghcr.io/nlamirault/atoma/shell`       |
-| [infra-tools](./images/infra-tools/) | `docker pull ghcr.io/nlamirault/atoma/infra-tools` |
+| Image Name                                 | Pull                                                        |
+| ------------------------------------------ | ----------------------------------------------------------- |
+| [shell](./images/shell/)                   | `docker pull ghcr.io/nlamirault/atoma/shell`           |
+| [infra-tools](./images/infra-tools/)       | `docker pull ghcr.io/nlamirault/atoma/infra-tools`     |
+| [python](./images/python/)                 | `docker pull ghcr.io/nlamirault/atoma/python`          |
+| [security-tools](./images/security-tools/) | `docker pull ghcr.io/nlamirault/atoma/security-tools`  |
+| [git-ops](./images/git-ops/)               | `docker pull ghcr.io/nlamirault/atoma/git-ops`         |
 
 ## Contributing
 

@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+---
+include: images/apko.yaml
+
+contents:
+  packages:
+  - argo-cd-3.4
+  - bash
+  - busybox
+  - ca-certificates-bundle
+  - curl
+  - flux-2.9
+  - git
+  - helm
+  - jq
+  - kubectl
+  - kustomize
+  - openssh-client
+  - yq
+
+cmd: /usr/bin/sh -l
+
+annotations:
+  org.opencontainers.image.description: "GitOps tools image based on Wolfi OS"
+  org.opencontainers.image.source: "https://github.com/nlamirault/atoma/tree/main/images/git-ops"
+  org.opencontainers.image.title: "git-ops"
