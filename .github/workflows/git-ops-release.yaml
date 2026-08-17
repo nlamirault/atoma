@@ -1,0 +1,38 @@
+# SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+---
+name: OCI / Git-ops release
+
+on: # yamllint disable-line rule:truthy
+  release:
+    types:
+    - published
+  workflow_dispatch:
+
+# Declare default permissions as read only.
+permissions: read-all
+
+jobs:
+  publish:
+    permissions:
+      actions: read
+      attestations: write
+      contents: read
+      id-token: write
+      packages: write
+      security-events: write
+
+    strategy:
+      matrix:
+        variant: [prod, dev]
+
+    name: ${{ matrix.version }}${{ matrix.variant == 'dev' && '-dev' || '' }}
+    uses: "./.github/workflows/release.yaml"
+    with:
+      repository: nlamirault/atoma/git-ops
+      config-dir: images/git-ops
+      tag: ${{ github.ref_name }}${{ matrix.variant == 'dev' && '-dev' || '' }}
+      target: ${{ matrix.variant }}
+      vex-file: vex/git-ops.openvex.json
+    secrets: inherit
