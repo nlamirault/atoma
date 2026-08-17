@@ -87,17 +87,9 @@ jobs:
       id: vars
       shell: bash
       run: |
-        if [[ "${{ github.ref_name }}" != "main" ]]; then
-          # export REGISTRY="ttl.sh"
-          export REGISTRY=${{ env.REGISTRY }}
-        else
-          export REGISTRY=${{ env.REGISTRY }}
-        fi
+        REGISTRY=${{ env.REGISTRY }}
         echo "registry=${REGISTRY}" >> $GITHUB_OUTPUT
         echo "image=${REGISTRY}/${{ inputs.repository }}:${{ inputs.tag }}" >> $GITHUB_OUTPUT
-        # Debug
-        echo "registry=${REGISTRY}"
-        echo "image=${REGISTRY}/${{ inputs.repository }}:${{ inputs.tag }}"
 
     - if: steps.vars.outputs.registry == 'ghcr.io'
       name: 🔓 Login to GitHub Registry
