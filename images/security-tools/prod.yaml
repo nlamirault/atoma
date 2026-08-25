@@ -1,0 +1,27 @@
+# SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+---
+include: images/apko.yaml
+
+contents:
+  packages:
+  - bash
+  - busybox
+  - ca-certificates-bundle
+  - cosign
+  - crane
+  - curl
+  - git
+  - grype
+  - jq
+  - syft
+  - trivy
+  - vexctl
+
+cmd: /usr/bin/sh -l
+
+annotations:
+  org.opencontainers.image.description: "Security scanning tools image based on Wolfi OS"
+  org.opencontainers.image.source: "https://github.com/nlamirault/atoma/tree/main/images/security-tools"
+  org.opencontainers.image.title: "security-tools"
