@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.7.0](https://github.com/nlamirault/atoma/compare/v0.6.0...v0.7.0) (2026-08-25)
+## [1.0.0](https://github.com/nlamirault/atoma/compare/v0.6.0...v1.0.0) (2026-08-25)
 
 
 ### 🚀 Features
