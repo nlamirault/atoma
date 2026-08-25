@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Copyright (C) Nicolas Lamirault <nicolas.lamirault@gmail.com>
+# SPDX-License-Identifier: Apache-2.0
+
+---
+include: images/apko.yaml
+
+contents:
+  packages:
+  - bash
+  - busybox
+  - ca-certificates-bundle
+  - py3-pip
+  - python-3.13
+  - uv
+  - wolfi-baselayout
+
+entrypoint:
+  command: /usr/bin/python3
+
+annotations:
+  org.opencontainers.image.description: "Python image based on Wolfi OS"
+  org.opencontainers.image.source: "https://github.com/nlamirault/atoma/tree/main/images/python"
+  org.opencontainers.image.title: "python"
