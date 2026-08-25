@@ -228,20 +228,6 @@ jobs:
         subject-digest: ${{ steps.digest.outputs.digest }}
         push-to-registry: true
 
-  slsa:
-    permissions:
-      actions: read
-      id-token: write
-      packages: write
-    needs: publish
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.1.0
-    with:
-      image: ${{ needs.publish.outputs.image }}
-      digest: ${{ needs.publish.outputs.digest }}
-    secrets:
-      registry-username: ${{ github.actor }}
-      registry-password: ${{ secrets.GITHUB_TOKEN }}
-
   scan:
     if: inputs.scan == 'true'
     permissions:
