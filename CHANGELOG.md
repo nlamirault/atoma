@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.0.0](https://github.com/nlamirault/atoma/compare/v0.6.0...v1.0.0) (2026-08-25)
+
+
+### 🚀 Features
+
+* **deps:** clean dependency management ([#85](https://github.com/nlamirault/atoma/issues/85)) ([2f3a13c](https://github.com/nlamirault/atoma/commit/2f3a13c7c578ab760b73f15e30f5a4d5377167fb))
+* **images:** add python image ([#98](https://github.com/nlamirault/atoma/issues/98)) ([841d6cb](https://github.com/nlamirault/atoma/commit/841d6cbfccd49d4271863f4667ce6c15df26b0ca))
+* **images:** add security-tools image ([#99](https://github.com/nlamirault/atoma/issues/99)) ([23a2e72](https://github.com/nlamirault/atoma/commit/23a2e72db65bf54cb76a1bfee85c8361ec68dcb7))
+
+
+### 🐛 Bug Fixes
+
+* correct wrong repo URLs, dead workflow code, and apko flags ([#93](https://github.com/nlamirault/atoma/issues/93)) ([95a8678](https://github.com/nlamirault/atoma/commit/95a8678eeeb8645a49edb6b09c2754a478ebc2a0))
+
+
+### 🚨 Maintenance
+
+* **deps:** Bump actions/attest-build-provenance from 4.1.0 to 4.1.1 ([#83](https://github.com/nlamirault/atoma/issues/83)) ([6d798ee](https://github.com/nlamirault/atoma/commit/6d798eed9ab7bc067a444ce210aec7e303ddc468))
+* **deps:** Bump actions/checkout from 4.2.2 to 7.0.0 ([#80](https://github.com/nlamirault/atoma/issues/80)) ([f728392](https://github.com/nlamirault/atoma/commit/f72839212566075ec2c645a46dfcb5d0b9256e9a))
+* **deps:** Bump imjasonh/setup-crane from 0.6 to 0.7 ([#79](https://github.com/nlamirault/atoma/issues/79)) ([d589eca](https://github.com/nlamirault/atoma/commit/d589eca99f4daf4f1d082351e845c43c26ac8448))
+* **deps:** Bump openvex/setup-vexctl from 0.1.0 to 0.1.1 ([#82](https://github.com/nlamirault/atoma/issues/82)) ([9111e1b](https://github.com/nlamirault/atoma/commit/9111e1bb03d7103c3af8d09be8a410cb89e4a6ef))
+* **deps:** Bump ossf/scorecard-action from 2.4.0 to 2.4.3 ([#81](https://github.com/nlamirault/atoma/issues/81)) ([1781901](https://github.com/nlamirault/atoma/commit/178190140b4bc93ac2ed36685a909ce49210b99c))
+* **deps:** Bump the github-actions-dependencies group across 1 directory with 3 updates ([#95](https://github.com/nlamirault/atoma/issues/95)) ([7132350](https://github.com/nlamirault/atoma/commit/7132350de5de24bdcd466a4fcf41c2f40f60fd90))
+* **deps:** Bump the github-actions-dependencies group across 1 directory with 4 updates ([#90](https://github.com/nlamirault/atoma/issues/90)) ([3fa4904](https://github.com/nlamirault/atoma/commit/3fa490498fabac7ca3c3d92b41e479ae58dff422))
+* **deps:** Bump the github-actions-dependencies group across 1 directory with 5 updates ([#86](https://github.com/nlamirault/atoma/issues/86)) ([f601487](https://github.com/nlamirault/atoma/commit/f6014871f60d855347f227a0081433d09d95da2e))
+* **deps:** Bump the github-actions-dependencies group across 1 directory with 6 updates ([#89](https://github.com/nlamirault/atoma/issues/89)) ([a10c249](https://github.com/nlamirault/atoma/commit/a10c249532431141db86c1286eeedb49d70581c7))
+* **deps:** Bump the github-actions-dependencies group across 1 directory with 6 updates ([#92](https://github.com/nlamirault/atoma/issues/92)) ([ab33788](https://github.com/nlamirault/atoma/commit/ab33788f50fc38a767c70e7f4a29b7f4b565126a))
+* migrate to GitHub native attestations (actions/attest) ([#97](https://github.com/nlamirault/atoma/issues/97)) ([a2135f9](https://github.com/nlamirault/atoma/commit/a2135f97099c57d9dc733462ae3f644077d4a864))
+
 ## [0.6.0](https://github.com/nlamirault/atoma/compare/v0.5.0...v0.6.0) (2026-07-01)
 
 
