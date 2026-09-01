@@ -117,7 +117,7 @@ jobs:
 
     - if: steps.check-melange.outputs.exists == 'true'
       name: ✅ Melange
-      uses: chainguard-dev/actions/melange-build@bed8050123fff65538e2db1902ff9404030c0221 # v1.6.31
+      uses: chainguard-dev/actions/melange-build@0ffab11a71c1b7bd68ddf94665a8ec88b116223d # v1.6.33
       with:
         config: ${{ inputs.config-dir }}/melange.yaml
         archs: ${{ inputs.archs }}
@@ -239,7 +239,7 @@ jobs:
 
     - name: ✅ Scan image
       id: scan
-      uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
+      uses: anchore/scan-action@27805bf3b4e84b4a5c980df22ed233c00390a439 # v7.4.2
       with:
         image: ${{ needs.publish.outputs.image }}
         cache-db: true
@@ -289,14 +289,14 @@ jobs:
 
     - name: ⬆️ Upload SARIF (VEX-filtered)
       if: steps.vex-merge.outputs.skip == 'false'
-      uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+      uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
       with:
         sarif_file: ${{ steps.vex-filter.outputs.sarif }}
         category: ${{ github.workflow }}
 
     - name: ⬆️ Upload SARIF (raw — no VEX files found)
       if: steps.vex-merge.outputs.skip == 'true'
-      uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+      uses: github/codeql-action/upload-sarif@cdf488f595d80d6e07e03d4674febd5ab45fa938 # v4.37.9
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
         category: ${{ github.workflow }}
