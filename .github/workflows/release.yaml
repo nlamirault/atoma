@@ -68,7 +68,7 @@ jobs:
 
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
+      uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
       with:
         egress-policy: audit
 
@@ -93,7 +93,7 @@ jobs:
 
     - if: steps.vars.outputs.registry == 'ghcr.io'
       name: 🔓 Login to GitHub Registry
-      uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+      uses: docker/login-action@81c6f93d4bc991e510b342a00b419b3bb4efc5c6 # v4.7.0
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
@@ -117,7 +117,7 @@ jobs:
 
     - if: steps.check-melange.outputs.exists == 'true'
       name: ✅ Melange
-      uses: chainguard-dev/actions/melange-build@bed8050123fff65538e2db1902ff9404030c0221 # v1.6.31
+      uses: chainguard-dev/actions/melange-build@e94104128fff55b3c5e1831a8bbbf198603156f9 # v1.7.1
       with:
         config: ${{ inputs.config-dir }}/melange.yaml
         archs: ${{ inputs.archs }}
@@ -227,7 +227,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Harden the runner (Audit all outbound calls)
-      uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
+      uses: step-security/harden-runner@dc2769abcc0fcfbadfc1df54081c1608579ef6b2 # v2.22.2
       with:
         egress-policy: audit
 
@@ -239,7 +239,7 @@ jobs:
 
     - name: ✅ Scan image
       id: scan
-      uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
+      uses: anchore/scan-action@27805bf3b4e84b4a5c980df22ed233c00390a439 # v7.4.2
       with:
         image: ${{ needs.publish.outputs.image }}
         cache-db: true
@@ -289,14 +289,14 @@ jobs:
 
     - name: ⬆️ Upload SARIF (VEX-filtered)
       if: steps.vex-merge.outputs.skip == 'false'
-      uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+      uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
       with:
         sarif_file: ${{ steps.vex-filter.outputs.sarif }}
         category: ${{ github.workflow }}
 
     - name: ⬆️ Upload SARIF (raw — no VEX files found)
       if: steps.vex-merge.outputs.skip == 'true'
-      uses: github/codeql-action/upload-sarif@ff2f1c621b7f889edc0d3c761ac2e6a3f8cdb0dd # v4.37.7
+      uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
       with:
         sarif_file: ${{ steps.scan.outputs.sarif }}
         category: ${{ github.workflow }}
